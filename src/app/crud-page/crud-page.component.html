@@ -1,0 +1,125 @@
+<!-- bookName: string;
+  author1: string;
+  category: string;
+  author2: string;
+  language: string;
+  edition: string;
+  cost: Number;
+  isbn: Number; --><br>
+<h2> {{ firstName }}</h2>
+<button type="button" mat-raised-button color="warn" (click)="onLogout()" style="text-align: center;">Logout</button>
+<div style="text-align: center;">
+    <form class="example-form" (ngSubmit)="onSubmit(addBook.value)" #addBook="ngForm">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Book Name" name="bookName" id="bookName" #bookName=ngModel [(ngModel)]="book.bookName">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Author 1" name="author1" id="author1" #author1=ngModel [(ngModel)]="book.author1">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Category" name="category" id="category" #category=ngModel [(ngModel)]="book.category">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Author 2" name="author2" id="author2" #author2=ngModel [(ngModel)]="book.author2">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Language" name="language" id="language" #language=ngModel [(ngModel)]="book.language">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Edition" name="edition" id="edition" #edition=ngModel [(ngModel)]="book.edition">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Cost" name="cost" id="cost" #cost=ngModel [(ngModel)]="book.cost">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ISBN" name="isbn" id="isbn" #isbn=ngModel [(ngModel)]="book.isbn">
+        </mat-form-field><br>
+
+        <button type="submit" mat-raised-button color="accent" style="text-align: center;">Add</button>
+    </form>
+</div><br>
+
+<div class="matTable">
+    <!-- MatTable -->
+    <table mat-table [dataSource]="books" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element">{{element.bookName}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="author1">
+            <th mat-header-cell *matHeaderCellDef> Author1 </th>
+            <td mat-cell *matCellDef="let element"> {{element.author1}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+
+        <!-- Author2 Column -->
+        <ng-container matColumnDef="author2">
+            <th mat-header-cell *matHeaderCellDef> Author2 </th>
+            <td mat-cell *matCellDef="let element"> {{element.author2}} </td>
+        </ng-container>
+
+        <!-- Language Column -->
+        <ng-container matColumnDef="language">
+            <th mat-header-cell *matHeaderCellDef> Language </th>
+            <td mat-cell *matCellDef="let element">{{element.language}}</td>
+        </ng-container>
+
+        <!-- Edition Column-->
+        <ng-container matColumnDef="edition">
+            <th mat-header-cell *matHeaderCellDef> Edition </th>
+            <td mat-cell *matCellDef="let element"> {{element.edition}} </td>
+        </ng-container>
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="cost">
+            <th mat-header-cell *matHeaderCellDef> Cost </th>
+            <td mat-cell *matCellDef="let element">{{element.cost}}</td>
+        </ng-container>
+
+        <!-- ISBN column -->
+        <ng-container matColumnDef="isbn">
+            <h3>
+                <th mat-header-cell *matHeaderCellDef> ISBN </th>
+            </h3>
+            <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+        </ng-container>
+
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button color="accent" (click)="onUpdate(element)">
+                  <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+
+                <button mat-icon-button color="accent" (click)="onDelete(element)">
+                  <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+            </mat-cell>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

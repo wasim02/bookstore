@@ -1,0 +1,31 @@
+<form class="example-form" (ngSubmit)="onSubmit(updateBook.value)" #updateBook="ngForm">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Book Name" name="bookName" id="bookName" #bookName=ngModel [(ngModel)]="book.bookName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Author 1" name="author1" id="author1" #author1=ngModel [(ngModel)]="book.author1">
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Category" name="category" id="category" #category=ngModel [(ngModel)]="book.category">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Author 2" name="author2" id="author2" #author2=ngModel [(ngModel)]="book.author2">
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Language" name="language" id="language" #language=ngModel [(ngModel)]="book.language">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Edition" name="edition" id="edition" #edition=ngModel [(ngModel)]="book.edition">
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Cost" name="cost" id="cost" #cost=ngModel [(ngModel)]="book.cost">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="ISBN" name="isbn" id="isbn" #isbn=ngModel [(ngModel)]="book.isbn">
+    </mat-form-field><br>
+
+    <button type="submit" mat-raised-button color="accent" style="text-align: center;">Update</button>
+</form>

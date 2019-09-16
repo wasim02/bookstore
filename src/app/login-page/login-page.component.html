@@ -1,0 +1,13 @@
+<div style="text-align: center">
+    <h2> Login </h2><br>
+    <form class="example-form" (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" name="username" id="username" ngModel #username="ngModel">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" name="password" id="password" ngModel #password="ngModel">
+        </mat-form-field><br>
+        <button type="submit" mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="accent" (click)="goToRegistration()" style="margin-left: 5px;">Register</button>
+    </form>
+</div>
